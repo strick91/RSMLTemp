@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RSMLTemp.ResolvedDetailed">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="DodgerBlue">
+                <Label Text="Incident Details"
+                       FontSize="24"
+                       Margin="0,10,0,10"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <Label x:Name="DeviceIdField" Text="Device Id"
+                HorizontalOptions="CenterAndExpand" 
+                   Margin="0,10,0,10" FontSize="18"/>
+            <Label x:Name="DepartmentField" Text="Department"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"/>
+            <Label x:Name="ThreatLevelField" Text="Threat Level"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"/>
+            <Label x:Name="TimeOccuredField" Text="Time Occured"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"/>
+            <Label x:Name="TimeResolvedField" Text="Time Resolved"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"/>
+            <Label x:Name="VerdictField" Text="Verdict"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"/>
+            <ListView/>
+            <Button Text="Back"
+                    Margin="0,20,0,0"
+                    FontSize="18"
+                    x:Name="resolvedBackButton"
+                    Clicked="resolvedBackButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
