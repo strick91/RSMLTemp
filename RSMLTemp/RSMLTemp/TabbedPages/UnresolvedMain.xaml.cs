@@ -72,8 +72,17 @@ namespace RSMLTemp.TabbedPages
             {
                 if(list_count < incident_count)
                 {
-                    Console.WriteLine("Send notification");
-                    list_count = incident_count;
+                    if(list_count != -1)
+                    {
+                        Console.WriteLine("Send notification");
+                        DependencyService.Get<INotification>().CreateNotification("RSML", "A new incident has occurred");
+                        list_count = incident_count;
+                    }
+                    
+                    else
+                    {
+                        list_count = incident_count;
+                    }
                 }
 
                 else if(list_count > incident_count)
@@ -82,11 +91,6 @@ namespace RSMLTemp.TabbedPages
                 }
             }
             UnresolvedList.ItemsSource = new_incidents_list;
-        }
-
-        private void SendNotification(object sender, EventArgs e)
-        {
-            DependencyService.Get<INotification>().CreateNotification("Unresolved Incident", "There has been a new incident");
         }
     }
 }
