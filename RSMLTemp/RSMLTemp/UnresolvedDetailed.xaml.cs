@@ -33,7 +33,10 @@ namespace RSMLTemp
             resolved_incident_object.Department = Department;
             resolved_incident_object.ThreatLevel = ThreatLevel;
             resolved_incident_object.TimeOccured = TimeOccured;
-            resolved_incident_object.TimeResolved = DateTime.Now;
+            var temp_time = DateTime.UtcNow;
+            TimeZoneInfo eastern = TimeZoneInfo.FindSystemTimeZoneById("America/New_York");
+            DateTime real_time = TimeZoneInfo.ConvertTimeFromUtc(temp_time, eastern);
+            resolved_incident_object.TimeResolved = real_time;
 
             unresolved_incident_object = new Unresolved();
             unresolved_incident_object.Id = Id;
