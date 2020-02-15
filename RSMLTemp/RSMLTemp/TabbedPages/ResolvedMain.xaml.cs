@@ -20,6 +20,15 @@ namespace RSMLTemp.TabbedPages
         {
             InitializeComponent();
             ResolvedIncidents();
+
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ResolvedIncidents();
+                });
+                return true;
+            });
         }
 
         protected override void OnAppearing()

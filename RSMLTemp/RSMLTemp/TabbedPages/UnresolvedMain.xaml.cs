@@ -16,10 +16,20 @@ namespace RSMLTemp.TabbedPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UnresolvedMain : TabbedPage
     {
+        public int list_count = -1;
         public UnresolvedMain()
         {
             InitializeComponent();
             UnresolvedIncidents();
+
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    UnresolvedIncidents();
+                });
+                return true;
+            });
         }
 
         protected override void OnAppearing()
@@ -57,7 +67,26 @@ namespace RSMLTemp.TabbedPages
             var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Unresolveds1");
             var incidents_list = JsonConvert.DeserializeObject<List<Unresolved>>(response);
             var new_incidents_list = incidents_list.OrderByDescending(x => x.TimeOccured);
+            int incident_count = new_incidents_list.Count();
+            if(list_count != incident_count)
+            {
+                if(list_count < incident_count)
+                {
+                    Console.WriteLine("Send notification");
+                    list_count = incident_count;
+                }
+
+                else if(list_count > incident_count)
+                {
+                    list_count = incident_count;
+                }
+            }
             UnresolvedList.ItemsSource = new_incidents_list;
+        }
+
+        private void SendNotification(object sender, EventArgs e)
+        {
+            DependencyService.Get<INotification>().CreateNotification("Unresolved Incident", "There has been a new incident");
         }
     }
 }
