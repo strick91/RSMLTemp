@@ -7,7 +7,7 @@
              x:Class="RSMLTemp.TabbedPages.UnresolvedMain"
             xmlns:pages="clr-namespace:RSMLTemp.TabbedPages">
     <pages:ResolvedMain/>
-    <ContentPage Title="UNRESOLVED">
+    <ContentPage Title="UNRESOLVED INCIDENTS">
         <StackLayout>
             <ListView x:Name="UnresolvedList" ItemSelected="UnresolvedList_ItemSelected" SeparatorColor="Black">
                 <ListView.ItemTemplate>
@@ -25,4 +25,5 @@
             </ListView>
         </StackLayout>
     </ContentPage>
+    <pages:ConfirmedDevicesInStorePage/>
 </TabbedPage>

@@ -4,18 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="RSMLTemp.TabbedPages.ResolvedMain"
-             Title="RESOLVED INCIDENTS">
+             x:Class="RSMLTemp.TabbedPages.ConfirmedDevicesInStorePage"
+             Title="CONFIRMED DEVICES">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ResolvedList" ItemSelected="ResolvedList_ItemSelected" SeparatorColor="Black">
+            <ListView x:Name="ConfirmedList" ItemSelected="ConfirmedList_ItemSelected" SeparatorColor="Black">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
-                                    <Label Text="{Binding TimeResolved}" TextColor="Black"/>
-                                    <Label Text="{Binding Department}" TextColor="Black"/>
+                                    <Label Text="{Binding DeviceId}" TextColor="Black"/>
+                                    <Label Text="{Binding LastSeenDepartment}" TextColor="Black"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
