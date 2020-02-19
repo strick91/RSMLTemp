@@ -8,6 +8,12 @@
              Title="RESOLVED INCIDENTS">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,20,0,0" />
+                    <On Platform="Android, UWP" Value="0,0,0,0" />
+                </OnPlatform>
+            </StackLayout.Margin>
             <ListView x:Name="ResolvedList" ItemSelected="ResolvedList_ItemSelected" SeparatorColor="Black">
                 <ListView.ItemTemplate>
                     <DataTemplate>
