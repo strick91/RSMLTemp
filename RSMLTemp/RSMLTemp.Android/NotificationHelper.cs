@@ -38,7 +38,7 @@ namespace RSMLTemp.Droid
                     .SetUsage(AudioUsageKind.Notification).Build();
 
                 mBuilder = new NotificationCompat.Builder(mContext);
-                mBuilder.SetSmallIcon(Resource.Drawable.icon);
+                mBuilder.SetSmallIcon(Resource.Drawable.meijerm);
                 mBuilder.SetContentTitle(title)
                         .SetSound(sound)
                         .SetAutoCancel(true)
@@ -49,7 +49,7 @@ namespace RSMLTemp.Droid
                         .SetVibrate(new long[0])
                         .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate)
                         .SetVisibility((int)NotificationVisibility.Public)
-                        .SetSmallIcon(Resource.Drawable.icon);
+                        .SetSmallIcon(Resource.Drawable.meijerm);
 
 
 
@@ -74,7 +74,7 @@ namespace RSMLTemp.Droid
                     }
                 }
 
-                notificationManager.Notify(0, mBuilder.Build());
+                notificationManager.Notify(new Random().Next(), mBuilder.Build());
             }
             catch (Exception ex)
             {

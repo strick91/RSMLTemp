@@ -16,6 +16,8 @@ namespace RSMLTemp.TabbedPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResolvedMain : ContentPage
     {
+        public int previous_store_number;
+        private ValidStores current_store = new ValidStores();
         public ResolvedMain()
         {
             InitializeComponent();
@@ -43,6 +45,23 @@ namespace RSMLTemp.TabbedPages
                 ResolvedList.ItemsSource = Resolved_incidents;
             }*/
 
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<ValidStores>();
+                var current_store_list = conn.Query<ValidStores>("SELECT * FROM ValidStores");
+                if (current_store_list.Count() > 0)
+                {
+                    current_store = current_store_list[0];
+                }
+
+                else
+                {
+                    current_store.StoreNumber = 158;
+                    current_store.StoreName = "Grand Rapids";
+                    previous_store_number = 158;
+                }
+            }
+
             ResolvedIncidents();
         }
 
@@ -68,7 +87,15 @@ namespace RSMLTemp.TabbedPages
             var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Resolveds1");
             var incidents_list = JsonConvert.DeserializeObject<List<Resolved>>(response);
             var new_incidents_list = incidents_list.OrderByDescending(x => x.TimeResolved);
-            ResolvedList.ItemsSource = new_incidents_list;
+            List<Resolved> new_incidents_list2 = new List<Resolved>();
+            foreach (var item in new_incidents_list)
+            {
+                if (item.StoreNumber == current_store.StoreNumber)
+                {
+                    new_incidents_list2.Add(item);
+                }
+            }
+            ResolvedList.ItemsSource = new_incidents_list2;
         }
     }
 }

@@ -16,12 +16,12 @@ namespace RSMLTemp
         {
             InitializeComponent();
 
-            DeviceIdField.Text = "Device Id: " + DeviceId;
-            DepartmentField.Text = "Department: " + Department;
-            ThreatLevelField.Text = "Threat Level: " + ThreatLevel;
-            TimeOccuredField.Text = "Time of Incident: " + TimeOccured;
-            TimeResolvedField.Text = "Time Resolved: " + TimeResolved;
-            VerdictField.Text = "Verdict: " + Verdict;
+            DeviceIdField.Text = DeviceId;
+            DepartmentField.Text = Department;
+            ThreatLevelField.Text = ThreatLevel;
+            TimeOccuredField.Text = TimeOccured.ToString();
+            TimeResolvedField.Text = TimeResolved.ToString();
+            VerdictField.Text = Verdict;
         }
 
         private void resolvedBackButton_Clicked(object sender, EventArgs e)

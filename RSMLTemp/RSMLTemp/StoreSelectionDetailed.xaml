@@ -1,30 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="RSMLTemp.TabbedPages.UnresolvedMain"
-            xmlns:pages="clr-namespace:RSMLTemp.TabbedPages">
-    <pages:StoreSelection/>
-    <pages:ResolvedMain/>
-    <ContentPage Title="UNRESOLVED INCIDENTS">
+             x:Class="RSMLTemp.StoreSelectionDetailed">
+    <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="UnresolvedList" ItemSelected="UnresolvedList_ItemSelected" SeparatorColor="Black">
+            <ListView x:Name="StoreSelectionList" ItemSelected="StoreSelectionList_ItemSelected" SeparatorColor="Black">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
-                                    <Label Text="{Binding TimeOccured}" TextColor="DarkRed"/>
-                                    <Label Text="{Binding Department}" TextColor="DarkRed"/>
+                                    <Label Text="{Binding StoreName}" TextColor="Black"/>
+                                    <Label Text="{Binding StoreNumber}" TextColor="Black"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Back"
+                    x:Name="BackButton"
+                    Clicked="BackButton_Clicked"
+                    VerticalOptions="EndAndExpand"
+                    FontSize="18"/>
         </StackLayout>
-    </ContentPage>
-    <pages:ConfirmedDevicesInStorePage/>
-</TabbedPage>
+    </ContentPage.Content>
+</ContentPage>

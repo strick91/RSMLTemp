@@ -17,5 +17,9 @@ namespace RSMLTemp.Classes
         public string ThreatLevel { get; set; }
 
         public DateTime TimeOccured { get; set; }
+
+        public int StoreNumber { get; set; }
+
+        public string StoreName { get; set; }
     }
 }

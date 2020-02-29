@@ -19,20 +19,22 @@ namespace RSMLTemp
         Resolved resolved_incident_object;
         Unresolved unresolved_incident_object;
         ConfirmedDevices confirmed_devices_object;
-        public UnresolvedDetailed(int Id, string DeviceId, string Department, string ThreatLevel, DateTime TimeOccured)
+        public UnresolvedDetailed(int Id, string DeviceId, string Department, string ThreatLevel, DateTime TimeOccured, int StoreNumber, string StoreName)
         {
             InitializeComponent();
 
-            DeviceIdField.Text = "Device Id: " + DeviceId;
-            DepartmentField.Text = "Department: " + Department;
-            ThreatLevelField.Text = "Threat Level: " + ThreatLevel;
-            TimeOccuredField.Text = "Time of Incident: " + TimeOccured;
+            DeviceIdField.Text = DeviceId;
+            DepartmentField.Text = Department;
+            ThreatLevelField.Text = ThreatLevel;
+            TimeOccuredField.Text = TimeOccured.ToString();
 
             resolved_incident_object = new Resolved();
             resolved_incident_object.DeviceId = DeviceId;
             resolved_incident_object.Department = Department;
             resolved_incident_object.ThreatLevel = ThreatLevel;
             resolved_incident_object.TimeOccured = TimeOccured;
+            resolved_incident_object.StoreNumber = StoreNumber;
+            resolved_incident_object.StoreName = StoreName;
             var temp_time = DateTime.UtcNow;
             TimeZoneInfo eastern = TimeZoneInfo.FindSystemTimeZoneById("America/New_York");
             DateTime real_time = TimeZoneInfo.ConvertTimeFromUtc(temp_time, eastern);
@@ -44,6 +46,8 @@ namespace RSMLTemp
             unresolved_incident_object.Department = Department;
             unresolved_incident_object.ThreatLevel = ThreatLevel;
             unresolved_incident_object.TimeOccured = TimeOccured;
+            unresolved_incident_object.StoreNumber = StoreNumber;
+            unresolved_incident_object.StoreName = StoreName;
 
             confirmed_devices_object = new ConfirmedDevices();
             confirmed_devices_object.DeviceId = DeviceId;

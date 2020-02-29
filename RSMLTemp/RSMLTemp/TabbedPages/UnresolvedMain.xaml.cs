@@ -17,6 +17,8 @@ namespace RSMLTemp.TabbedPages
     public partial class UnresolvedMain : TabbedPage
     {
         public int list_count = -1;
+        public int previous_store_number;
+        private ValidStores current_store = new ValidStores();
         public UnresolvedMain()
         {
             InitializeComponent();
@@ -44,6 +46,23 @@ namespace RSMLTemp.TabbedPages
                 UnresolvedList.ItemsSource = unresolved_incidents;
             }*/
 
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<ValidStores>();
+                var current_store_list = conn.Query<ValidStores>("SELECT * FROM ValidStores");
+                if(current_store_list.Count() > 0)
+                {
+                    current_store = current_store_list[0];
+                }
+
+                else
+                {
+                    current_store.StoreNumber = 158;
+                    current_store.StoreName = "Grand Rapids";
+                    previous_store_number = 158;
+                }
+            }
+
             UnresolvedIncidents();
         }
 
@@ -55,8 +74,10 @@ namespace RSMLTemp.TabbedPages
             string Department = unresolved_incident.Department;
             string ThreatLevel = unresolved_incident.ThreatLevel;
             DateTime TimeOccured = unresolved_incident.TimeOccured;
+            int StoreNumber = unresolved_incident.StoreNumber;
+            string StoreName = unresolved_incident.StoreName;
             
-            UnresolvedDetailed unresolved_detailed_page = new UnresolvedDetailed(Id, DeviceId, Department, ThreatLevel, TimeOccured);
+            UnresolvedDetailed unresolved_detailed_page = new UnresolvedDetailed(Id, DeviceId, Department, ThreatLevel, TimeOccured, StoreNumber, StoreName);
 
             this.Navigation.PushModalAsync(unresolved_detailed_page);
         }
@@ -67,12 +88,24 @@ namespace RSMLTemp.TabbedPages
             var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Unresolveds1");
             var incidents_list = JsonConvert.DeserializeObject<List<Unresolved>>(response);
             var new_incidents_list = incidents_list.OrderByDescending(x => x.TimeOccured);
-            int incident_count = new_incidents_list.Count();
+            List<Unresolved> new_incidents_list2 = new List<Unresolved>();
+            foreach(var item in new_incidents_list)
+            {
+                if(item.StoreNumber == current_store.StoreNumber)
+                {
+                    new_incidents_list2.Add(item);
+                }
+            }
+            int incident_count = new_incidents_list2.Count();
+            Console.WriteLine("current store number");
+            Console.WriteLine(current_store.StoreNumber);
+            Console.WriteLine("previous store number");
+            Console.WriteLine(previous_store_number);
             if(list_count != incident_count)
             {
                 if(list_count < incident_count)
                 {
-                    if(list_count != -1)
+                    if(list_count != -1 && current_store.StoreNumber == previous_store_number)
                     {
                         Console.WriteLine("Send notification");
                         DependencyService.Get<INotification>().CreateNotification("RSML", "A new incident has occurred");
@@ -90,7 +123,8 @@ namespace RSMLTemp.TabbedPages
                     list_count = incident_count;
                 }
             }
-            UnresolvedList.ItemsSource = new_incidents_list;
+            UnresolvedList.ItemsSource = new_incidents_list2;
+            previous_store_number = current_store.StoreNumber;
         }
     }
 }

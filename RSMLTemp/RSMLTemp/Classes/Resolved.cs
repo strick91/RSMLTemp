@@ -21,5 +21,9 @@ namespace RSMLTemp.Classes
         public DateTime TimeResolved { get; set; }
 
         public string Verdict { get; set; }
+
+        public int StoreNumber { get; set; }
+
+        public string StoreName { get; set; }
     }
 }
