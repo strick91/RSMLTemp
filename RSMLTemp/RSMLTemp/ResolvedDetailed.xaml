@@ -18,56 +18,70 @@
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="DeviceIdField" Text="Device Id"
                 HorizontalOptions="CenterAndExpand" 
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Department"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="DepartmentField" Text="Department"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Threat Level"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="ThreatLevelField" Text="Threat Level"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Time Occurred"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="TimeOccuredField" Text="Time Occured"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Time Resolved"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="TimeResolvedField" Text="Time Resolved"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Verdict"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="VerdictField" Text="Verdict"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Button Text="Back"
                     Margin="0,20,0,0"
                     FontSize="18"
                     VerticalOptions="EndAndExpand"
                     x:Name="resolvedBackButton"
-                    Clicked="resolvedBackButton_Clicked"/>
+                    Clicked="resolvedBackButton_Clicked"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

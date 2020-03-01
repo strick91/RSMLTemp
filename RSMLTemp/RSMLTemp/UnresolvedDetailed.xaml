@@ -18,50 +18,64 @@
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
+                   TextColor="Black"
                    Margin="0,10,0,10"/>
             <Label x:Name="DeviceIdField" Text="Device Id"
                 HorizontalOptions="CenterAndExpand" 
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Department"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="DepartmentField" Text="Department"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Threat Level"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="ThreatLevelField" Text="Threat Level"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Label Text="Time Occurred"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
-                   Margin="0,10,0,10"/>
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
             <Label x:Name="TimeOccuredField" Text="Time Occured"
                    HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"/>
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
             <Button Text="Confirmed shoplifting"
                     Margin="0,10,0,0"
                     FontSize="18"
                     VerticalOptions="EndAndExpand"
                     x:Name="resolveShoplifting"
-                    Clicked="resolveShoplifting_Clicked"/>
+                    Clicked="resolveShoplifting_Clicked"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"/>
             <Button Text="Not shoplifting"
                     Margin="0,10,0,0"
                     FontSize="18"
                     x:Name="resolveNotShoplifting"
-                    Clicked="resolveNotShoplifting_Clicked"/>
+                    Clicked="resolveNotShoplifting_Clicked"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"/>
             <Button Text="Back"
                     Margin="0,10,0,0"
                     FontSize="18"
                     x:Name="unresolvedBackButton"
-                    Clicked="unresolvedBackButton_Clicked"/>
+                    Clicked="unresolvedBackButton_Clicked"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

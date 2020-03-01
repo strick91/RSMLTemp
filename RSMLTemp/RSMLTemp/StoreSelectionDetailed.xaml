@@ -25,7 +25,9 @@
                     x:Name="BackButton"
                     Clicked="BackButton_Clicked"
                     VerticalOptions="EndAndExpand"
-                    FontSize="18"/>
+                    FontSize="18"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

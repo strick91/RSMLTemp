@@ -32,6 +32,10 @@ namespace RSMLTemp.Droid
         {
             try
             {
+                var intent = new Intent(mContext, typeof(MainActivity));
+                intent.AddFlags(ActivityFlags.ClearTop);
+                intent.PutExtra(title, message);
+                var pendingIntent = PendingIntent.GetActivity(mContext, 0, intent, PendingIntentFlags.OneShot);
                 var sound = global::Android.Net.Uri.Parse(ContentResolver.SchemeAndroidResource + "://" + mContext.PackageName + "/" + Resource.Raw.notification);
                 var alarmAttributes = new AudioAttributes.Builder()
                     .SetContentType(AudioContentType.Sonification)
@@ -49,6 +53,7 @@ namespace RSMLTemp.Droid
                         .SetVibrate(new long[0])
                         .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate)
                         .SetVisibility((int)NotificationVisibility.Public)
+                        .SetContentIntent(pendingIntent)
                         .SetSmallIcon(Resource.Drawable.meijerm);
 
 
