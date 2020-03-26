@@ -24,6 +24,16 @@ namespace RSMLTemp.TabbedPages
             InitializeComponent();
             CurrentConfirmedDevices();
 
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                Title = "CONFIRMED DEVICES";
+            }
+
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                Title = "CONFIRMED";
+            }
+
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>

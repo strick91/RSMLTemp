@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="RSMLTemp.TabbedPages.ConfirmedDevicesInStorePage"
              Title="CONFIRMED DEVICES">
+
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ConfirmedList" ItemSelected="ConfirmedList_ItemSelected" SeparatorColor="Black">

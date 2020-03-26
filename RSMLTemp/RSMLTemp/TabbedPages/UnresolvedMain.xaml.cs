@@ -24,6 +24,16 @@ namespace RSMLTemp.TabbedPages
             InitializeComponent();
             UnresolvedIncidents();
 
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                Title = "UNRESOLVED INCIDENTS";
+            }
+
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                Title = "UNRESOLVED";
+            }
+
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>

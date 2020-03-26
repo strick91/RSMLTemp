@@ -23,6 +23,16 @@ namespace RSMLTemp.TabbedPages
             InitializeComponent();
             ResolvedIncidents();
 
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                Title = "RESOLVED INCIDENTS";
+            }
+
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                Title = "RESOLVED";
+            }
+
             Device.StartTimer(new TimeSpan(0, 0, 1), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>
@@ -92,7 +102,14 @@ namespace RSMLTemp.TabbedPages
             {
                 if (item.StoreNumber == current_store.StoreNumber)
                 {
-                    new_incidents_list2.Add(item);
+                    if (new_incidents_list2.Count() < 75)
+                    {
+                        new_incidents_list2.Add(item);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
             ResolvedList.ItemsSource = new_incidents_list2;

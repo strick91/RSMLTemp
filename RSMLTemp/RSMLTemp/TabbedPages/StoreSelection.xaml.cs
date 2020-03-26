@@ -20,6 +20,16 @@ namespace RSMLTemp.TabbedPages
         public StoreSelection()
         {
             InitializeComponent();
+
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                Title = "STORE SELECTION";
+            }
+
+            else if (Device.RuntimePlatform == Device.iOS)
+            {
+                Title = "STORE";
+            }
         }
 
         protected override void OnAppearing()
