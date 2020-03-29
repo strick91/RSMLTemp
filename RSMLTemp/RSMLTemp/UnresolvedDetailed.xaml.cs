@@ -10,6 +10,7 @@ using RSMLTemp.Classes;
 using SQLite;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace RSMLTemp
 {
@@ -106,12 +107,18 @@ namespace RSMLTemp
         public async void DropUnresolvedIncident(int Id)
         {
             var httpClient = new HttpClient();
+            var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
+            var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            httpClient.DefaultRequestHeaders.Authorization = header;
             await httpClient.DeleteAsync("https://rsml.azurewebsites.net/api/Unresolveds1/" + Id.ToString());
         }
 
         private async void AddResolvedIncident(Resolved resolved_incident)
         {
             var httpClient = new HttpClient();
+            var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
+            var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            httpClient.DefaultRequestHeaders.Authorization = header;
             string json_object = JsonConvert.SerializeObject(resolved_incident);
             var content = new StringContent(json_object, Encoding.UTF8, "application/json");
             await httpClient.PostAsync("https://rsml.azurewebsites.net/api/Resolveds1", content);

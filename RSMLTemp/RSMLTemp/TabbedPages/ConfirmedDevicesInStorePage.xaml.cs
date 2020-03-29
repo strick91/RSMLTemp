@@ -10,6 +10,7 @@ using RSMLTemp.Classes;
 using System.Net.Http;
 using Newtonsoft.Json;
 using SQLite;
+using System.Net.Http.Headers;
 
 namespace RSMLTemp.TabbedPages
 {
@@ -71,6 +72,9 @@ namespace RSMLTemp.TabbedPages
         public async void CurrentConfirmedDevices()
         {
             var httpClient = new HttpClient();
+            var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
+            var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            httpClient.DefaultRequestHeaders.Authorization = header;
             var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/ConfirmedDevicesInStores1");
             var incidents_list = JsonConvert.DeserializeObject<List<ConfirmedDevicesInStore>>(response);
             var new_incidents_list = incidents_list.OrderBy(x => x.LastSeenDepartment);
