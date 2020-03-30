@@ -127,9 +127,27 @@ namespace RSMLTemp
         private async void AddConfirmedDevice(ConfirmedDevices device)
         {
             var httpClient = new HttpClient();
-            string json_object = JsonConvert.SerializeObject(device);
-            var content = new StringContent(json_object, Encoding.UTF8, "application/json");
-            await httpClient.PostAsync("https://rsml.azurewebsites.net/api/ConfirmedDevices1", content);
+            var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
+            var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            httpClient.DefaultRequestHeaders.Authorization = header;
+
+            bool add_device = true;
+            var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/ConfirmedDevices1");
+            var devices_list = JsonConvert.DeserializeObject<List<ConfirmedDevices>>(response);
+            for(int i = 0; i < devices_list.Count(); i++)
+            {
+                if(devices_list[i].DeviceId == device.DeviceId)
+                {
+                    add_device = false;
+                }
+            }
+
+            if(add_device == true)
+            {
+                string json_object = JsonConvert.SerializeObject(device);
+                var content = new StringContent(json_object, Encoding.UTF8, "application/json");
+                await httpClient.PostAsync("https://rsml.azurewebsites.net/api/ConfirmedDevices1", content);
+            }
         }
     }
 }
