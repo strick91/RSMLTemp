@@ -9,8 +9,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Device Id" x:Name="DeviceIdEntry"/>
-            <Entry Placeholder="Department" x:Name="DepartmentEntry"/>
-            <Entry Placeholder="Threat Level" x:Name="ThreatLevelEntry"/>
+            <Entry Placeholder="Suspicious Activites" x:Name="SuspiciousActivitiesEntry"/>
+            <Entry Placeholder="Date" x:Name="DateEntry"/>
             <Entry Placeholder="Time Occured" x:Name="TimeOccuredEntry"/>
             <Button Text="ADD INCIDENT"
                     Margin="0,20,0,0"

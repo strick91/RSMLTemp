@@ -16,8 +16,7 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
-                                    <Label Text="{Binding TimeOccured}" TextColor="DarkRed"/>
-                                    <Label Text="{Binding Department}" TextColor="DarkRed"/>
+                                    <Label Text="{Binding _Date}" TextColor="DarkRed"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>

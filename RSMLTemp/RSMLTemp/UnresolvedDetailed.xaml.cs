@@ -20,20 +20,21 @@ namespace RSMLTemp
         Resolved resolved_incident_object;
         Unresolved unresolved_incident_object;
         ConfirmedDevices confirmed_devices_object;
-        public UnresolvedDetailed(int Id, string DeviceId, string Department, string ThreatLevel, DateTime TimeOccured, int StoreNumber, string StoreName)
+        public UnresolvedDetailed(int Id, string DeviceId, string SuspiciousActivities, string _Date, double TimeOccured, int StoreNumber, string StoreName)
         {
             InitializeComponent();
 
             DeviceIdField.Text = DeviceId;
-            DepartmentField.Text = Department;
-            ThreatLevelField.Text = ThreatLevel;
-            TimeOccuredField.Text = TimeOccured.ToString();
+            SuspiciousActivities = SuspiciousActivities.Replace(",", Environment.NewLine);
+            Console.WriteLine("Suspicious Activities:" + SuspiciousActivities);
+            SuspiciousActivitiesField.Text = SuspiciousActivities;
+            _DateField.Text = _Date;
+            //TimeOccuredField.Text = TimeOccured.ToString();
 
             resolved_incident_object = new Resolved();
             resolved_incident_object.DeviceId = DeviceId;
-            resolved_incident_object.Department = Department;
-            resolved_incident_object.ThreatLevel = ThreatLevel;
-            resolved_incident_object.TimeOccured = TimeOccured;
+            resolved_incident_object.SuspiciousActivities = SuspiciousActivities;
+            resolved_incident_object._Date = _Date;
             resolved_incident_object.StoreNumber = StoreNumber;
             resolved_incident_object.StoreName = StoreName;
             var temp_time = DateTime.UtcNow;
@@ -44,8 +45,8 @@ namespace RSMLTemp
             unresolved_incident_object = new Unresolved();
             unresolved_incident_object.Id = Id;
             unresolved_incident_object.DeviceId = DeviceId;
-            unresolved_incident_object.Department = Department;
-            unresolved_incident_object.ThreatLevel = ThreatLevel;
+            unresolved_incident_object.SuspiciousActivities = SuspiciousActivities;
+            unresolved_incident_object._Date = _Date;
             unresolved_incident_object.TimeOccured = TimeOccured;
             unresolved_incident_object.StoreNumber = StoreNumber;
             unresolved_incident_object.StoreName = StoreName;

@@ -24,9 +24,9 @@ namespace RSMLTemp.TabbedPages
             Unresolved unresolved_incident = new Unresolved()
             {
                 DeviceId = DeviceIdEntry.Text,
-                Department = DepartmentEntry.Text,
-                ThreatLevel = ThreatLevelEntry.Text,
-                TimeOccured = Convert.ToDateTime(TimeOccuredEntry.Text)
+                SuspiciousActivities = SuspiciousActivitiesEntry.Text,
+                _Date = DateEntry.Text,
+                TimeOccured = float.Parse(TimeOccuredEntry.Text)
             };
 
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))

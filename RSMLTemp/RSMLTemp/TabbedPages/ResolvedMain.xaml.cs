@@ -82,13 +82,12 @@ namespace RSMLTemp.TabbedPages
             Resolved resolved_incident = (Resolved)e.SelectedItem;
             int Id = resolved_incident.Id;
             string DeviceId = resolved_incident.DeviceId;
-            string Department = resolved_incident.Department;
-            string ThreatLevel = resolved_incident.ThreatLevel;
-            DateTime TimeOccured = resolved_incident.TimeOccured;
+            string SuspiciousActivities = resolved_incident.SuspiciousActivities;
+            string _Date = resolved_incident._Date;
             DateTime TimeResolved = resolved_incident.TimeResolved;
             string Verdict = resolved_incident.Verdict;
 
-            ResolvedDetailed resolved_detailed_page = new ResolvedDetailed(Id, DeviceId, Department, ThreatLevel, TimeOccured, TimeResolved, Verdict);
+            ResolvedDetailed resolved_detailed_page = new ResolvedDetailed(Id, DeviceId, SuspiciousActivities, _Date, TimeResolved, Verdict);
 
             this.Navigation.PushModalAsync(resolved_detailed_page);
         }

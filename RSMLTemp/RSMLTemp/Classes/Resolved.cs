@@ -12,11 +12,9 @@ namespace RSMLTemp.Classes
 
         public string DeviceId { get; set; }
 
-        public string Department { get; set; }
+        public string SuspiciousActivities { get; set; }
 
-        public string ThreatLevel { get; set; }
-
-        public DateTime TimeOccured { get; set; }
+        public string _Date { get; set; }
 
         public DateTime TimeResolved { get; set; }
 

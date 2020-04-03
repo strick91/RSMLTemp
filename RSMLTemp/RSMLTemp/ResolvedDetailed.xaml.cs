@@ -12,14 +12,14 @@ namespace RSMLTemp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResolvedDetailed : ContentPage
     {
-        public ResolvedDetailed(int Id, string DeviceId, string Department, string ThreatLevel, DateTime TimeOccured, DateTime TimeResolved, string Verdict)
+        public ResolvedDetailed(int Id, string DeviceId, string SuspiciousActivities, string _Date, DateTime TimeResolved, string Verdict)
         {
             InitializeComponent();
 
             DeviceIdField.Text = DeviceId;
-            DepartmentField.Text = Department;
-            ThreatLevelField.Text = ThreatLevel;
-            TimeOccuredField.Text = TimeOccured.ToString();
+            SuspiciousActivities = SuspiciousActivities.Replace(",", Environment.NewLine);
+            SuspiciousActivitiesField.Text = SuspiciousActivities;
+            _DateField.Text = _Date;
             TimeResolvedField.Text = TimeResolved.ToString();
             VerdictField.Text = Verdict;
         }

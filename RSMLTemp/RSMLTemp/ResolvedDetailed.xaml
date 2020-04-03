@@ -24,33 +24,23 @@
                 HorizontalOptions="CenterAndExpand" 
                    Margin="0,10,0,10" FontSize="18"
                    TextColor="Black"/>
-            <Label Text="Department"
+            <Label Text="Suspicious Activities"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
                    Margin="0,10,0,10"
                    TextColor="Black"/>
-            <Label x:Name="DepartmentField" Text="Department"
+            <Label x:Name="SuspiciousActivitiesField" Text="Suspicious Activities"
                    HorizontalOptions="CenterAndExpand"
                    Margin="0,10,0,10" FontSize="18"
                    TextColor="Black"/>
-            <Label Text="Threat Level"
+            <Label Text="Date of Incident"
                    HorizontalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="18"
                    Margin="0,10,0,10"
                    TextColor="Black"/>
-            <Label x:Name="ThreatLevelField" Text="Threat Level"
-                   HorizontalOptions="CenterAndExpand"
-                   Margin="0,10,0,10" FontSize="18"
-                   TextColor="Black"/>
-            <Label Text="Time Occurred"
-                   HorizontalOptions="CenterAndExpand"
-                   FontAttributes="Bold"
-                   FontSize="18"
-                   Margin="0,10,0,10"
-                   TextColor="Black"/>
-            <Label x:Name="TimeOccuredField" Text="Time Occured"
+            <Label x:Name="_DateField" Text="Date"
                    HorizontalOptions="CenterAndExpand"
                    Margin="0,10,0,10" FontSize="18"
                    TextColor="Black"/>

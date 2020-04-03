@@ -82,13 +82,13 @@ namespace RSMLTemp.TabbedPages
             Unresolved unresolved_incident = (Unresolved)e.SelectedItem;
             int Id = unresolved_incident.Id;
             string DeviceId = unresolved_incident.DeviceId;
-            string Department = unresolved_incident.Department;
-            string ThreatLevel = unresolved_incident.ThreatLevel;
-            DateTime TimeOccured = unresolved_incident.TimeOccured;
+            string SuspiciousActivities = unresolved_incident.SuspiciousActivities;
+            string _Date = unresolved_incident._Date;
+            double TimeOccured = unresolved_incident.TimeOccured;
             int StoreNumber = unresolved_incident.StoreNumber;
             string StoreName = unresolved_incident.StoreName;
             
-            UnresolvedDetailed unresolved_detailed_page = new UnresolvedDetailed(Id, DeviceId, Department, ThreatLevel, TimeOccured, StoreNumber, StoreName);
+            UnresolvedDetailed unresolved_detailed_page = new UnresolvedDetailed(Id, DeviceId, SuspiciousActivities, _Date, TimeOccured, StoreNumber, StoreName);
 
             this.Navigation.PushModalAsync(unresolved_detailed_page);
         }

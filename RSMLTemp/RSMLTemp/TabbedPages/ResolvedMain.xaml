@@ -21,7 +21,7 @@
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
                                     <Label Text="{Binding TimeResolved}" TextColor="Black"/>
-                                    <Label Text="{Binding Department}" TextColor="Black"/>
+                                    <Label Text="{Binding Verdict}" TextColor="Black"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
