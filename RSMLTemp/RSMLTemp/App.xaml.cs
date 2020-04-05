@@ -12,7 +12,7 @@ namespace RSMLTemp
         {
             InitializeComponent();
 
-            MainPage = new UnresolvedMain();
+            MainPage = new UnresolvedMainTabbed();
             FilePath = filePath;
         }
 

@@ -15,7 +15,7 @@ using System.Net.Http.Headers;
 namespace RSMLTemp.TabbedPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UnresolvedMain : TabbedPage
+    public partial class UnresolvedMain : ContentPage
     {
         public int list_count = -1;
         public int previous_store_number;

@@ -1,23 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="RSMLTemp.TabbedPages.UnresolvedMain"
-            xmlns:pages="clr-namespace:RSMLTemp.TabbedPages">
-    <pages:StoreSelection/>
-    <pages:ResolvedMain/>
-    <ContentPage Title="UNRESOLVED INCIDENTS">
+             Title="UNRESOLVED INCIDENTS">
+    <ContentPage.Content>
         <StackLayout>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,20,0,0" />
+                    <On Platform="Android, UWP" Value="0,0,0,0" />
+                </OnPlatform>
+            </StackLayout.Margin>
             <ListView x:Name="UnresolvedList" ItemSelected="UnresolvedList_ItemSelected" SeparatorColor="Black">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
-                                    <Label Text="{Binding _Date}" TextColor="DarkRed"/>
-                                    <Label Text="{Binding DeviceId}" TextColor="DarkRed"/>
+                                    <Label Text="{Binding _Date}" TextColor="Black"/>
+                                    <Label Text="{Binding DeviceId}" TextColor="Black"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
@@ -25,6 +29,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage>
-    <pages:ConfirmedDevicesInStorePage/>
-</TabbedPage>
+    </ContentPage.Content>
+</ContentPage>
