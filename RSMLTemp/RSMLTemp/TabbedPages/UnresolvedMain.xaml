@@ -17,6 +17,7 @@
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
                                     <Label Text="{Binding _Date}" TextColor="DarkRed"/>
+                                    <Label Text="{Binding DeviceId}" TextColor="DarkRed"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>

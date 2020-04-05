@@ -115,7 +115,20 @@ namespace RSMLTemp.TabbedPages
 
         private void ConfirmedList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            ConfirmedDevicesInStore confirmed_devices_in_store = (ConfirmedDevicesInStore)e.SelectedItem;
+            int Id = confirmed_devices_in_store.Id;
+            string DeviceId = confirmed_devices_in_store.DeviceId;
+            string SuspiciousActivities = confirmed_devices_in_store.SuspiciousActivities;
+            string ZoneHistory = confirmed_devices_in_store.ZoneHistory;
+            string LastSeenDepartment = confirmed_devices_in_store.LastSeenDepartment;
+            double LastSeenTime = confirmed_devices_in_store.LastSeenTime;
+            int StoreNumber = confirmed_devices_in_store.StoreNumber;
+            string StoreName = confirmed_devices_in_store.StoreName;
 
+
+            ConfirmedDevicesInStoreDetailed confirmed_detailed_page = new ConfirmedDevicesInStoreDetailed(Id, DeviceId, SuspiciousActivities, ZoneHistory, LastSeenDepartment, LastSeenTime, StoreNumber, StoreName);
+
+            this.Navigation.PushModalAsync(confirmed_detailed_page);
         }
     }
 }

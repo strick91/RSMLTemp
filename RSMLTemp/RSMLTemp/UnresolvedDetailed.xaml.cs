@@ -25,11 +25,13 @@ namespace RSMLTemp
             InitializeComponent();
 
             DeviceIdField.Text = DeviceId;
-            SuspiciousActivities = SuspiciousActivities.Replace(",", Environment.NewLine);
+            if (SuspiciousActivities != null)
+            {
+                SuspiciousActivities = SuspiciousActivities.Replace(",", Environment.NewLine);
+            }
             Console.WriteLine("Suspicious Activities:" + SuspiciousActivities);
             SuspiciousActivitiesField.Text = SuspiciousActivities;
             _DateField.Text = _Date;
-            //TimeOccuredField.Text = TimeOccured.ToString();
 
             resolved_incident_object = new Resolved();
             resolved_incident_object.DeviceId = DeviceId;

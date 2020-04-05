@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RSMLTemp.ConfirmedDevicesInStoreDetailed">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="DodgerBlue">
+                <Label Text="Incident Details"
+                       FontSize="24"
+                       Margin="0,10,0,10"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <Label Text="Device Id"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
+            <Label x:Name="DeviceIdField" Text="Device Id"
+                HorizontalOptions="CenterAndExpand" 
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
+            <Label Text="Suspicious Activities"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
+            <Label x:Name="SuspiciousActivitiesField" Text="None"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
+            <Label Text="Zone History"
+                   HorizontalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   Margin="0,10,0,10"
+                   TextColor="Black"/>
+            <Label x:Name="ZoneHistoryField" Text="None"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,10,0,10" FontSize="18"
+                   TextColor="Black"/>
+            <Button Text="Back"
+                    Margin="0,20,0,0"
+                    FontSize="18"
+                    VerticalOptions="EndAndExpand"
+                    x:Name="resolvedBackButton"
+                    Clicked="confirmedBackButton_Clicked"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

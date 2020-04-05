@@ -111,9 +111,7 @@ namespace RSMLTemp.TabbedPages
                 }
             }
             int incident_count = new_incidents_list2.Count();
-            Console.WriteLine("current store number");
             Console.WriteLine(current_store.StoreNumber);
-            Console.WriteLine("previous store number");
             Console.WriteLine(previous_store_number);
             if(list_count != incident_count)
             {
