@@ -18,7 +18,7 @@ namespace RSMLTemp.TabbedPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResolvedMain : ContentPage
     {
-        public int previous_store_number;
+        public string previous_store_name;
         private ValidStores current_store = new ValidStores();
         public ResolvedMain()
         {
@@ -68,9 +68,9 @@ namespace RSMLTemp.TabbedPages
 
                 else
                 {
-                    current_store.StoreNumber = 158;
-                    current_store.StoreName = "Grand Rapids";
-                    previous_store_number = 158;
+                    current_store.StoreName = "ST158";
+                    current_store.StoreLocation = "1997 E Beltline Ave NE, Grand Rapids, MI 49525, USA";
+                    previous_store_name = "ST158";
                 }
             }
 
@@ -104,7 +104,7 @@ namespace RSMLTemp.TabbedPages
             List<Resolved> new_incidents_list2 = new List<Resolved>();
             foreach (var item in new_incidents_list)
             {
-                if (item.StoreNumber == current_store.StoreNumber)
+                if (item.StoreName == current_store.StoreName)
                 {
                     if (new_incidents_list2.Count() < 75)
                     {

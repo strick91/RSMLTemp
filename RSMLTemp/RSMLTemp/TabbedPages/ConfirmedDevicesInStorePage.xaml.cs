@@ -18,7 +18,7 @@ namespace RSMLTemp.TabbedPages
     public partial class ConfirmedDevicesInStorePage : ContentPage
     {
         public int list_count = -1;
-        public int previous_store_number;
+        public string previous_store_name;
         private ValidStores current_store = new ValidStores();
         public ConfirmedDevicesInStorePage()
         {
@@ -60,9 +60,9 @@ namespace RSMLTemp.TabbedPages
 
                 else
                 {
-                    current_store.StoreNumber = 158;
-                    current_store.StoreName = "Grand Rapids";
-                    previous_store_number = 158;
+                    current_store.StoreName = "ST158";
+                    current_store.StoreLocation = "1997 E Beltline Ave NE, Grand Rapids, MI 49525, USA";
+                    previous_store_name = "ST158";
                 }
             }
 
@@ -81,7 +81,7 @@ namespace RSMLTemp.TabbedPages
             List<ConfirmedDevicesInStore> new_incidents_list2 = new List<ConfirmedDevicesInStore>();
             foreach (var item in new_incidents_list)
             {
-                if (item.StoreNumber == current_store.StoreNumber)
+                if (item.StoreName == current_store.StoreName)
                 {
                     new_incidents_list2.Add(item);
                 }
@@ -91,7 +91,7 @@ namespace RSMLTemp.TabbedPages
             {
                 if (list_count < incident_count)
                 {
-                    if (list_count != -1 && previous_store_number == current_store.StoreNumber)
+                    if (list_count != -1 && previous_store_name == current_store.StoreName)
                     {
                         Console.WriteLine("Send notification");
                         DependencyService.Get<INotification>().CreateNotification("RSML", "A confirmed shoplifting device has entered the store");
@@ -110,7 +110,7 @@ namespace RSMLTemp.TabbedPages
                 }
             }
             ConfirmedList.ItemsSource = new_incidents_list2;
-            previous_store_number = current_store.StoreNumber;
+            previous_store_name = current_store.StoreName;
         }
 
         private void ConfirmedList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -122,11 +122,11 @@ namespace RSMLTemp.TabbedPages
             string ZoneHistory = confirmed_devices_in_store.ZoneHistory;
             string LastSeenDepartment = confirmed_devices_in_store.LastSeenDepartment;
             double LastSeenTime = confirmed_devices_in_store.LastSeenTime;
-            int StoreNumber = confirmed_devices_in_store.StoreNumber;
             string StoreName = confirmed_devices_in_store.StoreName;
+            string StoreLocation = confirmed_devices_in_store.StoreLocation;
 
 
-            ConfirmedDevicesInStoreDetailed confirmed_detailed_page = new ConfirmedDevicesInStoreDetailed(Id, DeviceId, SuspiciousActivities, ZoneHistory, LastSeenDepartment, LastSeenTime, StoreNumber, StoreName);
+            ConfirmedDevicesInStoreDetailed confirmed_detailed_page = new ConfirmedDevicesInStoreDetailed(Id, DeviceId, SuspiciousActivities, ZoneHistory, LastSeenDepartment, LastSeenTime, StoreName, StoreLocation);
 
             this.Navigation.PushModalAsync(confirmed_detailed_page);
         }

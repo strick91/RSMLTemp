@@ -20,7 +20,7 @@ namespace RSMLTemp
         Resolved resolved_incident_object;
         Unresolved unresolved_incident_object;
         ConfirmedDevices confirmed_devices_object;
-        public UnresolvedDetailed(int Id, string DeviceId, string SuspiciousActivities, string _Date, double TimeOccured, int StoreNumber, string StoreName)
+        public UnresolvedDetailed(int Id, string DeviceId, string SuspiciousActivities, string _Date, double TimeOccured, string StoreName, string StoreLocation)
         {
             InitializeComponent();
 
@@ -37,8 +37,8 @@ namespace RSMLTemp
             resolved_incident_object.DeviceId = DeviceId;
             resolved_incident_object.SuspiciousActivities = SuspiciousActivities;
             resolved_incident_object._Date = _Date;
-            resolved_incident_object.StoreNumber = StoreNumber;
             resolved_incident_object.StoreName = StoreName;
+            resolved_incident_object.StoreLocation = StoreLocation;
             var temp_time = DateTime.UtcNow;
             TimeZoneInfo eastern = TimeZoneInfo.FindSystemTimeZoneById("America/New_York");
             DateTime real_time = TimeZoneInfo.ConvertTimeFromUtc(temp_time, eastern);
@@ -50,8 +50,8 @@ namespace RSMLTemp
             unresolved_incident_object.SuspiciousActivities = SuspiciousActivities;
             unresolved_incident_object._Date = _Date;
             unresolved_incident_object.TimeOccured = TimeOccured;
-            unresolved_incident_object.StoreNumber = StoreNumber;
             unresolved_incident_object.StoreName = StoreName;
+            unresolved_incident_object.StoreLocation = StoreLocation;
 
             confirmed_devices_object = new ConfirmedDevices();
             confirmed_devices_object.DeviceId = DeviceId;

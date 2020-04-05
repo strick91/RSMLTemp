@@ -47,13 +47,13 @@ namespace RSMLTemp.TabbedPages
 
                 else
                 {
-                    current_store.StoreNumber = 158;
-                    current_store.StoreName = "Grand Rapids";
+                    current_store.StoreName = "ST158";
+                    current_store.StoreLocation = "1997 E Beltline Ave NE, Grand Rapids, MI 49525, USA";
                 }
             }
 
-            StoreNumberField.Text = "You are currently connected to store " + current_store.StoreNumber;
-            StoreNameField.Text = current_store.StoreName;
+            StoreNameField.Text = "You are currently connected to store " + current_store.StoreName;
+            StoreLocationField.Text = current_store.StoreLocation;
         }
 
         private void StoreSelectionButton_Clicked(object sender, EventArgs e)

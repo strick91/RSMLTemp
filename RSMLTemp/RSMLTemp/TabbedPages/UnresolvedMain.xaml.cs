@@ -18,7 +18,7 @@ namespace RSMLTemp.TabbedPages
     public partial class UnresolvedMain : ContentPage
     {
         public int list_count = -1;
-        public int previous_store_number;
+        public string previous_store_name;
         private ValidStores current_store = new ValidStores();
         public UnresolvedMain()
         {
@@ -68,9 +68,9 @@ namespace RSMLTemp.TabbedPages
 
                 else
                 {
-                    current_store.StoreNumber = 158;
-                    current_store.StoreName = "Grand Rapids";
-                    previous_store_number = 158;
+                    current_store.StoreName = "ST158";
+                    current_store.StoreLocation = "1997 E Beltline Ave NE, Grand Rapids, MI 49525, USA";
+                    previous_store_name = "ST158";
                 }
             }
 
@@ -85,10 +85,10 @@ namespace RSMLTemp.TabbedPages
             string SuspiciousActivities = unresolved_incident.SuspiciousActivities;
             string _Date = unresolved_incident._Date;
             double TimeOccured = unresolved_incident.TimeOccured;
-            int StoreNumber = unresolved_incident.StoreNumber;
             string StoreName = unresolved_incident.StoreName;
+            string StoreLocation = unresolved_incident.StoreLocation;
             
-            UnresolvedDetailed unresolved_detailed_page = new UnresolvedDetailed(Id, DeviceId, SuspiciousActivities, _Date, TimeOccured, StoreNumber, StoreName);
+            UnresolvedDetailed unresolved_detailed_page = new UnresolvedDetailed(Id, DeviceId, SuspiciousActivities, _Date, TimeOccured, StoreName, StoreLocation);
 
             this.Navigation.PushModalAsync(unresolved_detailed_page);
         }
@@ -105,19 +105,19 @@ namespace RSMLTemp.TabbedPages
             List<Unresolved> new_incidents_list2 = new List<Unresolved>();
             foreach(var item in new_incidents_list)
             {
-                if(item.StoreNumber == current_store.StoreNumber)
+                if(item.StoreName == current_store.StoreName)
                 {
                     new_incidents_list2.Add(item);
                 }
             }
             int incident_count = new_incidents_list2.Count();
-            Console.WriteLine(current_store.StoreNumber);
-            Console.WriteLine(previous_store_number);
+            Console.WriteLine(current_store.StoreName);
+            Console.WriteLine(previous_store_name);
             if(list_count != incident_count)
             {
                 if(list_count < incident_count)
                 {
-                    if(list_count != -1 && current_store.StoreNumber == previous_store_number)
+                    if(list_count != -1 && current_store.StoreName == previous_store_name)
                     {
                         Console.WriteLine("Send notification");
                         DependencyService.Get<INotification>().CreateNotification("RSML", "A new incident has occurred");
@@ -136,7 +136,7 @@ namespace RSMLTemp.TabbedPages
                 }
             }
             UnresolvedList.ItemsSource = new_incidents_list2;
-            previous_store_number = current_store.StoreNumber;
+            previous_store_name = current_store.StoreName;
         }
     }
 }

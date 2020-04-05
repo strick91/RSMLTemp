@@ -32,15 +32,17 @@
                     TextColor="White"/>
             <Label Text="You are currently connected to store 158"
                 HorizontalOptions="CenterAndExpand"
-                   x:Name="StoreNumberField"
-                   FontSize="18"
-                   TextColor="Black"
-                   Margin="0,20,0,0"/>
-            <Label Text="Grand Rapids"
-                   HorizontalOptions="CenterAndExpand"
                    x:Name="StoreNameField"
                    FontSize="18"
-                   TextColor="Black"/>
+                   TextColor="Black"
+                   Margin="0,20,0,0"
+                   XAlign="Center"/>
+            <Label Text="Grand Rapids"
+                   HorizontalOptions="CenterAndExpand"
+                   x:Name="StoreLocationField"
+                   FontSize="18"
+                   TextColor="Black"
+                   XAlign="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

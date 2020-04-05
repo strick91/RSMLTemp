@@ -18,8 +18,8 @@ namespace RSMLTemp.Classes
 
         public double TimeOccured { get; set; }
 
-        public int StoreNumber { get; set; }
-
         public string StoreName { get; set; }
+
+        public string StoreLocation { get; set; }
     }
 }

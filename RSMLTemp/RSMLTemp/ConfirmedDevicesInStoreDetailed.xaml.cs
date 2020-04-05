@@ -12,7 +12,7 @@ namespace RSMLTemp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ConfirmedDevicesInStoreDetailed : ContentPage
     {
-        public ConfirmedDevicesInStoreDetailed(int Id, string DeviceId, string SuspiciousActivities, string ZoneHistory, string LastSeenDepartment, double LastSeenTime, int StoreNumber, string StoreName)
+        public ConfirmedDevicesInStoreDetailed(int Id, string DeviceId, string SuspiciousActivities, string ZoneHistory, string LastSeenDepartment, double LastSeenTime, string StoreName, string StoreLocation)
         {
             InitializeComponent();
 

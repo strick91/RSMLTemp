@@ -13,8 +13,8 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout BackgroundColor="LightGray">
+                                    <Label Text="{Binding StoreLocation}" TextColor="Black"/>
                                     <Label Text="{Binding StoreName}" TextColor="Black"/>
-                                    <Label Text="{Binding StoreNumber}" TextColor="Black"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
