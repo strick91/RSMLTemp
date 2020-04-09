@@ -11,6 +11,7 @@ using RSMLTemp.Classes;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using Xamarin.Essentials;
 
 namespace RSMLTemp.TabbedPages
 {
@@ -23,7 +24,8 @@ namespace RSMLTemp.TabbedPages
         public UnresolvedMain()
         {
             InitializeComponent();
-            UnresolvedIncidents();
+            //UnresolvedIncidents();
+            Console.WriteLine("DEVICE INFO: " + DeviceInfo.Model);
 
             if (Device.RuntimePlatform == Device.Android)
             {
@@ -74,7 +76,7 @@ namespace RSMLTemp.TabbedPages
                 }
             }
 
-            UnresolvedIncidents();
+            //UnresolvedIncidents();
         }
 
         private void UnresolvedList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -95,11 +97,12 @@ namespace RSMLTemp.TabbedPages
 
         public async void UnresolvedIncidents()
         {
-            var httpClient = new HttpClient();
-            var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
-            var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-            httpClient.DefaultRequestHeaders.Authorization = header;
-            var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Unresolveds1");
+            //var httpClient = new HttpClient();
+            //var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
+            //var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            //httpClient.DefaultRequestHeaders.Authorization = header;
+
+            var response = await App.httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Unresolveds1");
             var incidents_list = JsonConvert.DeserializeObject<List<Unresolved>>(response);
             var new_incidents_list = incidents_list.OrderByDescending(x => x.TimeOccured);
             List<Unresolved> new_incidents_list2 = new List<Unresolved>();
@@ -111,8 +114,9 @@ namespace RSMLTemp.TabbedPages
                 }
             }
             int incident_count = new_incidents_list2.Count();
-            Console.WriteLine(current_store.StoreName);
-            Console.WriteLine(previous_store_name);
+            //Console.WriteLine(current_store.StoreName);
+            //Console.WriteLine(previous_store_name);
+            //Console.WriteLine("DEVICE INFO: " + DeviceInfo.Model);
             if(list_count != incident_count)
             {
                 if(list_count < incident_count)

@@ -30,11 +30,12 @@ namespace RSMLTemp
 
         public async void StoreSelect()
         {
-            var httpClient = new HttpClient();
-            var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
-            var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-            httpClient.DefaultRequestHeaders.Authorization = header;
-            var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/ValidStores1");
+            //var httpClient = new HttpClient();
+            //var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
+            //var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+            //httpClient.DefaultRequestHeaders.Authorization = header;
+
+            var response = await App.httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/ValidStores1");
             var incidents_list = JsonConvert.DeserializeObject<List<ValidStores>>(response);
             var new_incidents_list = incidents_list.OrderByDescending(x => x.StoreName);
 

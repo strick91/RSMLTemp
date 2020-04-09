@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using System.IO;
+using UserNotifications;
 
 namespace RSMLTemp.iOS
 {
@@ -21,17 +22,29 @@ namespace RSMLTemp.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
-
             string fileName = "RSMLTemp_db.db3";
             string folderPath = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
             string completePath = Path.Combine(folderPath, fileName);
 
-            LoadApplication(new App(completePath));
 
-            return base.FinishedLaunching(app, options);
+
+            // Request notification permissions from the user
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound, (approved, err) => {
+                // Handle approval
+            });
+
+            // Get current notification settings
+            UNUserNotificationCenter.Current.GetNotificationSettings((settings) => {
+                var alertsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
+            });
+
+
+            LoadApplication(new App(completePath));
+            return base.FinishedLaunching(application, launchOptions);
         }
+
     }
 }

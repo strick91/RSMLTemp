@@ -23,7 +23,7 @@ namespace RSMLTemp.TabbedPages
         public ResolvedMain()
         {
             InitializeComponent();
-            ResolvedIncidents();
+            //ResolvedIncidents();
 
             if (Device.RuntimePlatform == Device.Android)
             {
@@ -74,7 +74,7 @@ namespace RSMLTemp.TabbedPages
                 }
             }
 
-            ResolvedIncidents();
+            //ResolvedIncidents();
         }
 
         private void ResolvedList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -98,7 +98,8 @@ namespace RSMLTemp.TabbedPages
             var byteArray = Encoding.ASCII.GetBytes("TeamMeijer:Need Anything?");
             var header = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
             httpClient.DefaultRequestHeaders.Authorization = header;
-            var response = await httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Resolveds1");
+
+            var response = await App.httpClient.GetStringAsync("https://rsml.azurewebsites.net/api/Resolveds1");
             var incidents_list = JsonConvert.DeserializeObject<List<Resolved>>(response);
             var new_incidents_list = incidents_list.OrderByDescending(x => x.TimeResolved);
             List<Resolved> new_incidents_list2 = new List<Resolved>();
