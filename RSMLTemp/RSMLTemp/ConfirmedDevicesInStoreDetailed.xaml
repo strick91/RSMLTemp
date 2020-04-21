@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout BackgroundColor="DodgerBlue">
-                <Label Text="Incident Details"
+                <Label Text="Confirmed Device"
                        FontSize="24"
                        Margin="0,10,0,10"
                        TextColor="White"
